@@ -1,0 +1,1 @@
+-I/Users/jacobbergfalk/Desktop/C programmering/Codelite-sets/set4/sample_ptr_arr_func
