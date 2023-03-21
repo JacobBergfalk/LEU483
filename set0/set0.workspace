@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="set0" Database="" Version="11000">
+  <Project Name="helloworld" Path="helloworld/helloworld.project" Active="Yes"/>
+  <Project Name="pieces" Path="pieces/pieces.project" Active="No"/>
+  <Project Name="fixme" Path="fixme/fixme.project" Active="No"/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="clang++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="helloworld" ConfigName="Windows"/>
+      <Project Name="pieces" ConfigName="Windows"/>
+      <Project Name="fixme" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="helloworld" ConfigName="Linux"/>
+      <Project Name="pieces" ConfigName="Linux"/>
+      <Project Name="fixme" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="helloworld" ConfigName="macOS"/>
+      <Project Name="pieces" ConfigName="macOS"/>
+      <Project Name="fixme" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
