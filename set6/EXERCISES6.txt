@@ -1,0 +1,193 @@
+*** Exercises Set 6 ***
+
+Do as many exercises as possible *BUT* you can't spend all your time here.
+Labs are mandatory and need time. Use the leftover exercises as recap for the exam
+
+
+Exercises
+---------
+
+1.  See ex1cylinder.c. Write a program, which reads in the radius and the height
+    of a cylinder and calculates the surface area and volume of this cylinder.
+    See the Wikipedia article for the equations needed https://en.wikipedia.org/wiki/Cylinder
+
+
+2.  See ex2dyn_allocate. Implement a program that dynamically allocates an array (using malloc).
+    Example:
+
+    How many elements > 3        (first run)
+    Input 0 >  1
+    Input 1 >  2
+    Input 2 >  3
+    Array is 1  2  3
+
+    How many elements > 5        (second run)
+    Input 0 >  7
+    Input 1 >  2
+    Input 2 >  4
+    Input 3 >  5
+    Input 4 >  1
+    Array is 7  2  4  5  1
+
+3.  See ex3bit_set.c. This is an exercise in using bitwise operators in C.
+    Useful in upcoming courses. Uncomment until all print ok.
+    See also https://en.wikipedia.org/wiki/Bitwise_operations_in_C
+
+4.  See ex4module. The task is to restructure the code to get a standard type
+    C-module with a header and a source file. The module is used in main (tested only).
+    The header file is already implemented.
+
+    Steps
+    1.  Copy all definitions to the .c-file.
+    2.  Include h-file in .c-file (use "..."  not <...>)
+    3.  Make tests in main pass.
+
+
+5.  See ex5pseudocode.c. Pseudocode is a plain language description of the steps
+    of a code. It usually resembles actual code, but it is not code, which can
+    be run on a machine. Since language and/or environment dependent features are
+    omitted, it is usually easier to read. Text books and scientific publications
+    rely on pseudocode to document algorithms. For a further overview of pseudocode,
+    see the Wikipedia article: https://en.wikipedia.org/wiki/Pseudocode
+
+    The following algorithm describes how to approximate Pi using a so called
+    Monte Carlo method. Monte Carlo methods use random numbers to get numerical
+    results. The ratio between the area of a circle with radius r and a square
+    with an edge length of 2r is Pi/4. This ratio is unchanged if we only
+    consider only a quarter or half of the square and the circle. For simplicity
+    we will assume a radius r=1 and only consider the first quadrant of a coordinate
+    system (i.e., x>=0, y>=0).
+
+    ----------begin pseudocode --------------------------
+    inCircleArea = 0
+    inSquareArea = 0
+    for(i=1 to 100):
+            x = random value from [0,1]
+            y = random value from [0,1]
+            if (x,y) within the circle:
+                     inCircleArea = inCircleArea + 1
+            inSquareArea = inSquareArea + 1
+    pi = 4.0*inCircleArea/inSquareArea
+    print pi
+    ----------end pseudocode -----------------------------
+
+    a) Describe in your own words what this algorithm does. (Max. 4 short sentences)
+    b) Implement the pseudocode in C and compare your result with the actual value of Pi
+       (HINT: Either use the definition in math.h or pi=4*atan(1)).
+    c) Increase the number of randomly chosen points to 1000, 10000, and 100000.
+       How does the value you calculated change compared to the actual value of Pi?
+
+6.  See ex6_rempdupl_dyn.c. This is a rework of exercise 3 (remove duplicates)
+    from set4. Here we return a new dynamically allocated array
+    with size same as the number of elements (no padding with zeros here)!
+
+7.  See ex7lcr.c. This is a simulation of the LCR game. (This exercise is harder)
+    See: https://www.wikihow.com/Play-LCR
+    The main task here is functional decomposition. Try yourself! Find the higher
+    level functions you need to make it easy to get the over all flow in the
+    program (used in main). Example:
+
+    HINT: Use string.h functions as needed.
+
+    Simulation starts
+    Olle got result L.R
+    Olle : 1 Fia : 4 Sven : 4
+    Sven got result ...
+    Olle : 1 Fia : 4 Sven : 4
+    Fia got result .RL
+    Olle : 2 Fia : 2 Sven : 5
+    Olle got result RC
+    Olle : 0 Fia : 3 Sven : 5
+    Sven got result RC.
+    Olle : 1 Fia : 3 Sven : 3
+    Fia got result .L.
+    Olle : 2 Fia : 2 Sven : 3
+    Olle got result CR
+    Olle : 0 Fia : 3 Sven : 3
+    Sven got result R.R
+    Olle : 2 Fia : 3 Sven : 1
+    Fia got result .RL
+    Olle : 3 Fia : 1 Sven : 2
+    Olle got result ..C
+    Olle : 2 Fia : 1 Sven : 2
+    Sven got result LR
+    Olle : 3 Fia : 2 Sven : 0
+    Fia got result ..
+    Olle : 3 Fia : 2 Sven : 0
+    Olle got result .R.
+    Olle : 2 Fia : 3 Sven : 0
+    Sven got result
+    Olle : 2 Fia : 3 Sven : 0
+    Fia got result R..
+    Olle : 2 Fia : 2 Sven : 1
+    Olle got result .L
+    Olle : 1 Fia : 2 Sven : 2
+    Sven got result L.
+    Olle : 1 Fia : 3 Sven : 1
+    Fia got result ...
+    Olle : 1 Fia : 3 Sven : 1
+    Olle got result L
+    Olle : 0 Fia : 3 Sven : 2
+    Sven got result CC
+    Olle : 0 Fia : 3 Sven : 0
+    Simulation ended
+
+
+8.  See ex8quadratic.c. Write a program, which solves the quadratic equation ax^2+bx+c=0. 
+    a,b,c are supposed to be entered by the user.
+
+
+9.  See ex9fib.c. The Fibonacci sequence consists of numbers, which are the sum of the two previous
+    elements. Here, the first and the second elements are defined as 0 and 1 respectively.
+    Mathematically speaking the n-th Fibonacci number F(n) is calculated by
+    F(n)=F(n-2)+F(n-1). So the Fibonacci sequence looks like this:
+    0 1 1 2 3 5 8 13 21 34 ...
+    Implement the following pseudocode, which prints the Fibonacci sequence
+    ----------begin pseudocode --------------------------
+    a=0
+    b=1
+    print(a,b)
+    for(i=1 to 15):
+        t=a+b
+        a=b
+        b=t
+        print(t)
+    ----------end pseudocode ----------------------------
+
+10. See ex10bubblesort.c. This is an old exam question. Try to solve this with pen
+    and paper before using the computer.
+
+    Uppgiften här är att implementera sorteringsalgoritmen "bubble sort" för ett
+    fält av flyttal. "Pseudo-code" för en lätt optimerad version av bubble sort
+    är (ifrån Wikipedia, lätt modifierad):
+
+    ----------begin pseudocode --------------------------
+
+        procedure bubble_sort(A : list of sortable items, n : length(A) )
+            repeat
+                swapped := false
+                for i := 1 to n - 1 inclusive do
+                    if A[i - 1] > A[i] then
+                        swap(A[i - 1], A[i])
+                        swapped = true
+                    end if
+                end for
+                n := n - 1
+            until not swapped
+        end procedure
+
+    ----------end pseudocode ----------------------------
+
+
+    Notera att ovan *ej* är C-kod, utan ett försök att beskriva algoritmen på ett
+    lättfattligt, generellt sätt. Implementera denna algoritm i C, enligt exemplet
+    nedan. För full poäng krävs funktionell nedbrytning.
+    
+
+        int main() {
+            double f[] = {3.4, -1.1, -5.3, 2.3, 0, -0.23, 1.11};
+            const int n = sizeof(f) / sizeof(f[0]);
+            bubble_sort(f, n);
+            printf("%.2f\n", f[0]); // This shall print -5.30
+            printf("%.2f\n", f[n - 1]); // This shall print 3.40
+        }

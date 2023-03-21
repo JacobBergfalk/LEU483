@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="set6" Database="" Version="10000">
+  <Project Name="ex10bubblesort" Path="ex10bubblesort/ex10bubblesort.project" Active="Yes"/>
+  <Project Name="ex1cylinder" Path="ex1cylinder/ex1cylinder.project" Active="No"/>
+  <Project Name="ex2dyn_allocate" Path="ex2dyn_allocate/ex2dyn_allocate.project" Active="No"/>
+  <Project Name="ex3bit_set" Path="ex3bit_set/ex3bit_set.project" Active="No"/>
+  <Project Name="ex5pseudocode" Path="ex5pseudocode/ex5pseudocode.project" Active="No"/>
+  <Project Name="ex6remdupl_dyn" Path="ex6remdupl_dyn/ex6remdupl_dyn.project" Active="No"/>
+  <Project Name="ex7lcr" Path="ex7lcr/ex7lcr.project" Active="No"/>
+  <Project Name="ex8quadratic" Path="ex8quadratic/ex8quadratic.project" Active="No"/>
+  <Project Name="ex9fib" Path="ex9fib/ex9fib.project" Active="No"/>
+  <Project Name="sample_bit_operators" Path="sample_bit_operators/sample_bit_operators.project" Active="No"/>
+  <Project Name="sample_dyn_struct" Path="sample_dyn_struct/sample_dyn_struct.project" Active="No"/>
+  <Project Name="sample_ptr_struct" Path="sample_ptr_struct/sample_ptr_struct.project" Active="No"/>
+  <Project Name="sample_struct" Path="sample_struct/sample_struct.project" Active="No"/>
+  <Project Name="sample_struct_func" Path="sample_struct_func/sample_struct_func.project" Active="No"/>
+  <Project Name="sample_use_malloc" Path="sample_use_malloc/sample_use_malloc.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="ex10bubblesort" ConfigName="Windows"/>
+      <Project Name="ex1cylinder" ConfigName="Windows"/>
+      <Project Name="ex2dyn_allocate" ConfigName="Windows"/>
+      <Project Name="ex3bit_set" ConfigName="Windows"/>
+      <Project Name="ex5pseudocode" ConfigName="Windows"/>
+      <Project Name="ex6remdupl_dyn" ConfigName="Windows"/>
+      <Project Name="ex7lcr" ConfigName="Windows"/>
+      <Project Name="ex8quadratic" ConfigName="Windows"/>
+      <Project Name="ex9fib" ConfigName="Windows"/>
+      <Project Name="sample_bit_operators" ConfigName="Windows"/>
+      <Project Name="sample_dyn_struct" ConfigName="Windows"/>
+      <Project Name="sample_ptr_struct" ConfigName="Windows"/>
+      <Project Name="sample_struct" ConfigName="Windows"/>
+      <Project Name="sample_struct_func" ConfigName="Windows"/>
+      <Project Name="sample_use_malloc" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="ex10bubblesort" ConfigName="Linux"/>
+      <Project Name="ex1cylinder" ConfigName="Linux"/>
+      <Project Name="ex2dyn_allocate" ConfigName="Linux"/>
+      <Project Name="ex3bit_set" ConfigName="Linux"/>
+      <Project Name="ex5pseudocode" ConfigName="Linux"/>
+      <Project Name="ex6remdupl_dyn" ConfigName="Linux"/>
+      <Project Name="ex7lcr" ConfigName="Linux"/>
+      <Project Name="ex8quadratic" ConfigName="Linux"/>
+      <Project Name="ex9fib" ConfigName="Linux"/>
+      <Project Name="sample_bit_operators" ConfigName="Linux"/>
+      <Project Name="sample_dyn_struct" ConfigName="Linux"/>
+      <Project Name="sample_ptr_struct" ConfigName="Linux"/>
+      <Project Name="sample_struct" ConfigName="Linux"/>
+      <Project Name="sample_struct_func" ConfigName="Linux"/>
+      <Project Name="sample_use_malloc" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="ex10bubblesort" ConfigName="macOS"/>
+      <Project Name="ex1cylinder" ConfigName="macOS"/>
+      <Project Name="ex2dyn_allocate" ConfigName="macOS"/>
+      <Project Name="ex3bit_set" ConfigName="macOS"/>
+      <Project Name="ex5pseudocode" ConfigName="macOS"/>
+      <Project Name="ex6remdupl_dyn" ConfigName="macOS"/>
+      <Project Name="ex7lcr" ConfigName="macOS"/>
+      <Project Name="ex8quadratic" ConfigName="macOS"/>
+      <Project Name="ex9fib" ConfigName="macOS"/>
+      <Project Name="sample_bit_operators" ConfigName="macOS"/>
+      <Project Name="sample_dyn_struct" ConfigName="macOS"/>
+      <Project Name="sample_ptr_struct" ConfigName="macOS"/>
+      <Project Name="sample_struct" ConfigName="macOS"/>
+      <Project Name="sample_struct_func" ConfigName="macOS"/>
+      <Project Name="sample_use_malloc" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
