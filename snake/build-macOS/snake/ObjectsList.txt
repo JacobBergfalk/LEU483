@@ -1,0 +1,1 @@
+../build-macOS/snake/snake.c.o

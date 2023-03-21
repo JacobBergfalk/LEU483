@@ -1,0 +1,572 @@
+//#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+typedef int bool;
+#define true 1
+#define false 0
+
+#define TEST false     // If true run tests (only), else run program, change to "false" only after
+
+#define EQUALS(v1, v2) printf( (v1) == (v2) ? "Ok\n" : "Not ok\n")
+// implementing functions
+
+#define X_SIZE 78    // Horizontal size, not including walls
+#define Y_SIZE 18    // Vertical size, not including walls
+
+#define APPLE_SYMBOL '@'
+#define GRASS_SYMBOL '.'
+#define SNAKE_BODY_SYMBOL '#'
+#define SNAKE_HEAD_SYMBOL 'O'
+#define WALL_SYMBOL '+'
+
+#define UP_ARROW 'w'            // GLÖM INTE ÄNDRA FÖR TEST SEDAN.
+#define LEFT_ARROW 'a'
+#define DOWN_ARROW 's'
+#define RIGHT_ARROW 'd'
+
+#define START_WAIT 0.5 // s
+#define SPEEDUP_FACTOR 0.9
+
+#ifdef _WIN32
+//Windows Libraries
+	#include <conio.h>
+    #include <windows.h>
+	void clrscr(){
+        // Clears the screen, disabling the cursor
+		system("cls");
+        HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+        CONSOLE_CURSOR_INFO cursorInfo;
+        GetConsoleCursorInfo(out, &cursorInfo);
+        cursorInfo.bVisible = false;
+        SetConsoleCursorInfo(out, &cursorInfo);
+		return;
+	}
+    void gotoxy(int x, int y){
+        // Sets the cursor at position (x,y)
+        COORD coord;
+        coord.X = 0;
+        coord.Y = 0;
+        SetConsoleCursorPosition(
+            GetStdHandle(STD_OUTPUT_HANDLE),
+            coord
+		);
+    }
+
+
+#else
+//Linux-macOS Libraries
+#include <termios.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+//http://cboard.cprogramming.com/c-programming/63166-kbhit-linux.html
+int kbhit(void) {
+    struct termios oldt, newt;
+    int ch;
+    int oldf;
+
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
+
+    ch = getchar();
+
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    fcntl(STDIN_FILENO, F_SETFL, oldf);
+
+    if(ch != EOF) {
+        ungetc(ch, stdin);
+        return 1;
+    }
+
+    return 0;
+}
+
+//http://www.experts-exchange.com/Programming/Languages/C/Q_10119844.html - posted by jos
+char getch() {
+    char c;
+    system("stty raw");
+    c=getchar();
+    printf("\r "); // Typed character replaced, stty raw -echo doesn't fix it
+    system("stty sane");
+    return(c);
+}
+
+void clrscr() {
+    // Clears the screen
+    system("clear");
+    return;
+}
+void gotoxy(int x,int y){
+    // Sets the cursor at position (x,y)
+    printf("%c[%d;%df",0x1B,y,x);
+}
+//End linux-macOS functions
+#endif
+
+// Testing of functions, see far below
+void test();
+
+// ----- The test methods ----------------------------
+void test_snake_init();
+void test_insertSnakeBodyUnit();
+void test_snake_move();
+void test_snake_turn();
+void test_snake_hit_self();
+void test_snake_eat_apple();
+
+// --- Things needed (nothing to do for you) ---
+typedef struct {
+    int x, y;
+} apple_t;
+
+typedef enum {
+    UP, RIGHT, DOWN, LEFT
+} dir_t;
+
+// The snake
+typedef struct {
+    int x[X_SIZE*Y_SIZE];
+    int y[X_SIZE*Y_SIZE];
+    int length;
+    dir_t dir;
+} snake_t;
+
+void apple_new(apple_t *apple, snake_t *snake) {
+    // Draw random positions until position not hitting snake found
+    bool ready = false;
+    int x_try, y_try;
+    while (!ready)
+    {
+        x_try = 1 + rand()%(X_SIZE);
+        y_try = 1 + rand()%(Y_SIZE);
+        ready = true;
+        for (int i=0; i<snake->length && ready; ++i)
+        {
+            if (x_try == snake->x[i] && y_try == snake->y[i])
+                ready = false;
+        }
+    }
+    apple->x = x_try;
+    apple->y = y_try;
+}
+
+void world_field(char world[X_SIZE+2][Y_SIZE+2], apple_t *apple, snake_t *snake) {
+    for (int y=1; y<Y_SIZE+1; ++y) {
+        for (int x=1; x<X_SIZE+1; ++x) {
+            world[x][y] = GRASS_SYMBOL;
+        }
+    }
+    world[apple->x][apple->y] = APPLE_SYMBOL;
+    world[snake->x[0]][snake->y[0]] = SNAKE_HEAD_SYMBOL;
+    for (int i=1; i<snake->length; ++i) {
+        world[snake->x[i]][snake->y[i]] = SNAKE_BODY_SYMBOL;
+    }
+}
+
+void world_print(char world[X_SIZE+2][Y_SIZE+2], int points) {
+    gotoxy(0,0);
+    for (int y=0; y<Y_SIZE+2; ++y) {
+        for (int x=0; x<X_SIZE+2; ++x) {
+            printf("%c", world[x][y]);
+        }
+        printf("\n");
+    }
+    printf("Points: %d\n", points);
+}
+
+void world_walls(char world[X_SIZE+2][Y_SIZE+2]) {
+    for (int y=0; y<Y_SIZE+2; ++y) {
+        for (int x=0; x<X_SIZE+2; ++x) {
+            if (y==0 || y==Y_SIZE+1 || x==0 || x==X_SIZE+1)
+                world[x][y] = WALL_SYMBOL;
+        }
+    }
+}
+
+
+// -----------------------------------------------------------------------------------------------
+// --- Your stuff below
+// -----------------------------------------------------------------------------------------------
+
+// Creation of the snake with default parameters
+// direction RIGHT, head at the center of the map and
+// length = 2 (1 head + 1 body unit)
+void snake_init(snake_t *snake) {
+    snake->length = 2;      
+    snake->dir = RIGHT;     
+    snake->x[0] = 39;
+    snake->y[0] = 9;
+    snake->x[1] = 38;
+    snake->y[1] = 9;
+}
+
+// set the snake direction
+void snake_turn(snake_t *snake) {
+
+    if (kbhit()) { // user hits key
+        char input = getch(); // fetch the key value to input
+        
+        if(input == UP_ARROW) {             // enkel if-sats för att avgöra vilket knapp som betyder håll. 
+            snake->dir = UP;
+        } else if (input == DOWN_ARROW) {   //sätter temorärt nya värden på styrknapparna till wasd från uhnj
+            snake->dir = DOWN;
+        } else if (input == LEFT_ARROW) {
+            snake->dir = LEFT;
+        } else if (input == RIGHT_ARROW) {
+            snake->dir = RIGHT;
+        }
+    }
+}
+
+// Update the position of the snake according
+// to its direction.
+void snake_move(snake_t *snake) {
+    
+    /*
+     *  börja längst bak i snake och byter värde på cellerna till värdet som cellen framför har.
+     *  
+     *  byter sist nummer på huvudet då det varierar beroende på vilket håll (dir) som snake går mot.
+     */
+     
+     for(int i = snake->length -1; i > 0; i--) {
+         snake->x[i] = snake->x[i - 1];
+         snake->y[i] = snake->y[i - 1];
+     } 
+    
+    if(snake->dir == UP) snake->y[0]--;
+    if(snake->dir == DOWN) snake->y[0]++;
+    if(snake->dir == LEFT) snake->x[0]--;
+    if(snake->dir == RIGHT) snake->x[0]++;
+
+}
+
+// Did the snake eat the apple
+bool snake_eat_apple(apple_t *apple, snake_t *snake) {
+    
+    // Om huvudet har samma position som äpplet har så blir längden större med en och programmet skapar ett nytt äpple
+    // funktionen retunerar även true till main funktionen som ändrar hastigehet.
+    // om positionen inte är samma som huvudet retuneras false.
+    
+    if(snake->x[0] == apple->x && snake->y[0] == apple->y) {
+        snake->length++;
+        apple_new(apple, snake);
+        return true;
+    }
+    
+    return false;
+    
+}
+
+// If the snake length is greater than 2,
+// the snake can hit itself
+bool snake_hit_self(snake_t *snake) {
+    
+    bool result = false;
+    
+    if (snake->length < 3) {    // om längden är 2 så returnerar funktionen false direkt för att undvika onödig räkning
+        return false;   
+    }
+    
+    for (int i = 1 ; i < snake->length; i++) {
+        
+        if(snake->x[0] == snake->x[i] && snake->y[0] == snake->y[i]) {  // om huvudet har samma position som annan kroppscell blir 
+            result = true;                                              // bool result true.
+        }                                                               // annars behålls result som false
+    }
+    
+    return result;                                                      // och retuneras. Gör detta för att minska antalet rader.
+}
+
+// The snake must stay within the
+// boundaries of the world.
+bool snake_hit_wall(snake_t *snake) {
+    return snake->x[0] > X_SIZE || snake->x[0] < 0 ||  snake->y[0] > Y_SIZE || snake->y[0] < 0;
+
+}
+
+int main() {
+
+
+    if (TEST) {
+        test();
+        return 0;
+    }
+
+    // Initalizations
+    struct timespec ts;
+    ts.tv_sec = (long) START_WAIT;
+    ts.tv_nsec = (long) (START_WAIT * 1000000000) % 1000000000;
+
+    srand(time(0));
+
+    // Clear the screen, disabling the cursor if platform is Windows
+    clrscr();
+
+    // Create world
+    char world[X_SIZE+2][Y_SIZE+2];
+    world_walls(world);
+
+    // Create initial snake
+    bool snake_dead = false;
+    snake_t snake;
+    snake_init(&snake);
+
+    // Create initial apple
+    apple_t apple;
+    apple_new(&apple, &snake);
+
+    while (!snake_dead) {
+        snake_turn(&snake);
+        snake_move(&snake);
+        world_field(world, &apple, &snake);
+        world_print(world, snake.length-2);
+        if (snake_eat_apple(&apple, &snake)) {
+            ts.tv_nsec = ((long) (((ts.tv_sec * 1000000000) + ts.tv_nsec) * SPEEDUP_FACTOR)) % 1000000000;
+            ts.tv_sec = (long) ts.tv_sec * SPEEDUP_FACTOR;
+        }
+        snake_dead = snake_hit_wall(&snake) || snake_hit_self(&snake);
+        if (snake_dead) {
+            printf("Game over!!!\n");
+        }
+        nanosleep(&ts, NULL);
+    }
+
+    return(0);
+}
+
+void test() {
+
+    printf("do test");
+
+    // TODO for testing
+    // Run one at the time until all works
+    // Then possibly run all at once.
+    // -- uncomment what you want to test --
+
+    //test_snake_init(); //OK
+    //test_snake_move(); //OK
+    //test_snake_turn(); //OK
+    //test_snake_hit_self(); // to pass, this needs snake_turn to be working too // OK
+    //test_snake_eat_apple(); //OK
+
+    exit(0);
+}
+
+// ------------ Test functions definitions -----------------
+
+
+void test_snake_init(){
+    printf("Test_snake_init\n");
+    snake_t snake;
+    snake_init(&snake);
+    EQUALS(snake.dir, RIGHT);
+    EQUALS(snake.x[0]*1000000+snake.y[0]*10000+snake.y[1]*100+snake.x[1], 39090938);
+    EQUALS(snake.length, 2);
+}
+
+void test_snake_move(){
+    printf("Test_snake_move\n");
+    snake_t snake;
+
+    snake_init(&snake);
+    snake.dir = UP;
+    snake_move(&snake);
+    if (snake.x[0] != 39 || snake.x[1] != 39 || snake.y[0] != 8 || snake.y[1] != 9){
+        printf("Not ok\n");
+    } else {
+        printf("Ok\n");
+    }
+
+    snake_init(&snake);
+    snake.dir = DOWN;
+    snake_move(&snake);
+    if (snake.x[0] != 39 || snake.x[1] != 39 || snake.y[0] != 10 || snake.y[1] != 9){
+        printf("Not ok\n");
+    } else {
+        printf("Ok\n");
+    }
+
+    snake_init(&snake);
+    snake.dir = LEFT;
+    snake_move(&snake);
+    if (snake.x[0] != 38 || snake.x[1] != 39 || snake.y[0] != 9 || snake.y[1] != 9){
+        printf("Not ok\n");
+    } else {
+        printf("Ok\n");
+    }
+
+    snake_init(&snake);
+    snake.dir = RIGHT;
+    snake_move(&snake);
+    if (snake.x[0] != 40 || snake.x[1] != 39 || snake.y[0] != 9 || snake.y[1] != 9){
+        printf("Not ok\n");
+    } else {
+        printf("Ok\n");
+    }
+}
+
+
+void test_snake_eat_apple(){
+    snake_t snake;
+    snake_init(&snake);
+    printf("Test_check_eat_apple\n");
+
+    apple_t *apple = malloc(sizeof(apple_t));
+    if (apple == NULL) {
+        perror("Couldn't create apple, giving up");
+        exit(EXIT_FAILURE);
+    }
+
+    apple->x = 14;
+    apple->y = 12;
+    EQUALS(snake_eat_apple(apple, &snake), 0);
+
+    apple->x = 39;
+    apple->y = 9;
+    EQUALS(snake_eat_apple(apple, &snake), 1);
+}
+
+// These last two test functions have slight differences for Win and linux-macOS
+#ifdef _WIN32
+void test_snake_turn(){  // Windows function
+    
+    struct timespec ts;
+    ts.tv_sec = 5;
+    ts.tv_nsec = 125;
+    
+    printf("Test_snake_turn\n");
+      
+    snake_t snake;
+    snake_init(&snake);
+    
+    printf("Just type the requested letter and wait a few seconds, DO NOT type ENTER or any other key\n");
+
+    printf("do left turn --> type h (you have 5 seconds): ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);
+    EQUALS(snake.dir, LEFT);
+
+    printf("do right turn (j): ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);
+    EQUALS(snake.dir, RIGHT);
+
+    printf("do up turn (u): ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);
+    EQUALS(snake.dir, UP);
+
+    printf("do down turn (n): ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);
+    EQUALS(snake.dir, DOWN);
+
+}
+
+void test_snake_hit_self() {  // Windows function
+    
+    struct timespec ts;
+    ts.tv_sec = 5;
+    ts.tv_nsec = 125;
+    
+    printf("Test_snake_hit_self\n");
+    snake_t snake;
+    snake_init(&snake);
+
+    printf("Just type the requested letter and wait a few seconds, DO NOT type ENTER or any other key\n");
+
+    // Snake length is two and moving to the RIGHT (default at init)
+    // Now turn the snake to the LEFT
+    printf("type key h: ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);
+    snake_move(&snake);
+    EQUALS(snake_hit_self(&snake), false);
+
+    // same in the up/down
+    snake.dir = UP;
+    printf("type key n: ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);    // Opposite direction
+    snake_move(&snake);          // If length 2 never will collide!
+    EQUALS(snake_hit_self(&snake), false);
+
+    // If length > 2 possibly will collide!
+    snake.dir = DOWN;
+    snake.length = 3;
+    printf("type key u: ");
+    nanosleep(&ts, NULL);
+    snake_turn(&snake);    // Opposite direction
+    snake_move(&snake);
+    EQUALS(snake_hit_self(&snake), true);
+}
+
+#else
+void test_snake_turn(){  // Unix function
+    printf("Test_snake_turn\n");
+    int key;
+    snake_t snake;
+    snake_init(&snake);
+
+    printf("do left turn (h): ");
+    scanf("%d", &key);
+    snake_turn(&snake);
+    EQUALS(snake.dir, LEFT);
+
+    printf("do right turn (j): ");
+    scanf("%d", &key);
+    snake_turn(&snake);
+    EQUALS(snake.dir, RIGHT);
+
+    printf("do up turn (u): ");
+    scanf("%d", &key);
+    snake_turn(&snake);
+    EQUALS(snake.dir, UP);
+
+    printf("do down turn (n): ");
+    scanf("%d", &key);
+    snake_turn(&snake);
+    EQUALS(snake.dir, DOWN);
+
+}
+
+void test_snake_hit_self() {  // Unix function
+    printf("Test_snake_hit_self\n");
+    int key;
+    snake_t snake;
+    snake_init(&snake);
+
+    // Snake length is two and moving to the RIGHT (default at init)
+    // Now turn the snake to the LEFT
+    printf("type key h: ");
+    scanf("%d", &key);
+    snake_turn(&snake);
+    snake_move(&snake);
+    EQUALS(snake_hit_self(&snake), false);
+
+    // same in the up/down
+    snake.dir = UP;
+    printf("type key n: ");
+    scanf("%d", &key);
+    snake_turn(&snake);    // Opposite direction
+    snake_move(&snake);          // If length 2 never will collide!
+    EQUALS(snake_hit_self(&snake), false);
+
+    // If length > 2 possibly will collide!
+    snake.dir = DOWN;
+    snake.length = 3;
+    printf("type key u: ");
+    scanf("%d", &key);
+    snake_turn(&snake);    // Opposite direction
+    snake_move(&snake);
+    EQUALS(snake_hit_self(&snake), true);
+}
+
+//End linux-macOS functions
+#endif
