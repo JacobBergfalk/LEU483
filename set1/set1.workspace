@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="set1" Database="" Version="11000">
+  <Project Name="ex10aldern" Path="ex10aldern/ex10aldern.project" Active="Yes"/>
+  <Project Name="ex1rectangle" Path="ex1rectangle/ex1rectangle.project" Active="No"/>
+  <Project Name="ex2deg_rad" Path="ex2deg_rad/ex2deg_rad.project" Active="No"/>
+  <Project Name="ex3factorial" Path="ex3factorial/ex3factorial.project" Active="No"/>
+  <Project Name="ex4sum_avg" Path="ex4sum_avg/ex4sum_avg.project" Active="No"/>
+  <Project Name="ex5functions" Path="ex5functions/ex5functions.project" Active="No"/>
+  <Project Name="ex6fiddling" Path="ex6fiddling/ex6fiddling.project" Active="No"/>
+  <Project Name="ex7practise" Path="ex7practise/ex7practise.project" Active="No"/>
+  <Project Name="ex8fixme" Path="ex8fixme/ex8fixme.project" Active="No"/>
+  <Project Name="ex9nim" Path="ex9nim/ex9nim.project" Active="No"/>
+  <Project Name="sample_c2f" Path="sample_c2f/sample_c2f.project" Active="No"/>
+  <Project Name="sample_functions" Path="sample_functions/sample_functions.project" Active="No"/>
+  <Project Name="sample_if_stmt" Path="sample_if_stmt/sample_if_stmt.project" Active="No"/>
+  <Project Name="sample_io" Path="sample_io/sample_io.project" Active="No"/>
+  <Project Name="sample_nested_stmt" Path="sample_nested_stmt/sample_nested_stmt.project" Active="No"/>
+  <Project Name="sample_operators" Path="sample_operators/sample_operators.project" Active="No"/>
+  <Project Name="sample_random" Path="sample_random/sample_random.project" Active="No"/>
+  <Project Name="sample_variables" Path="sample_variables/sample_variables.project" Active="No"/>
+  <Project Name="sample_while_stmt" Path="sample_while_stmt/sample_while_stmt.project" Active="No"/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="clang++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="no" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="ex10aldern" ConfigName="Windows"/>
+      <Project Name="ex1rectangle" ConfigName="Windows"/>
+      <Project Name="ex2deg_rad" ConfigName="Windows"/>
+      <Project Name="ex3factorial" ConfigName="Windows"/>
+      <Project Name="ex4sum_avg" ConfigName="Windows"/>
+      <Project Name="ex5functions" ConfigName="Windows"/>
+      <Project Name="ex6fiddling" ConfigName="Windows"/>
+      <Project Name="ex7practise" ConfigName="Windows"/>
+      <Project Name="ex8fixme" ConfigName="Windows"/>
+      <Project Name="ex9nim" ConfigName="Windows"/>
+      <Project Name="sample_c2f" ConfigName="Windows"/>
+      <Project Name="sample_functions" ConfigName="Windows"/>
+      <Project Name="sample_if_stmt" ConfigName="Windows"/>
+      <Project Name="sample_io" ConfigName="Windows"/>
+      <Project Name="sample_nested_stmt" ConfigName="Windows"/>
+      <Project Name="sample_operators" ConfigName="Windows"/>
+      <Project Name="sample_random" ConfigName="Windows"/>
+      <Project Name="sample_variables" ConfigName="Windows"/>
+      <Project Name="sample_while_stmt" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="ex10aldern" ConfigName="Linux"/>
+      <Project Name="ex1rectangle" ConfigName="Linux"/>
+      <Project Name="ex2deg_rad" ConfigName="Linux"/>
+      <Project Name="ex3factorial" ConfigName="Linux"/>
+      <Project Name="ex4sum_avg" ConfigName="Linux"/>
+      <Project Name="ex5functions" ConfigName="Linux"/>
+      <Project Name="ex6fiddling" ConfigName="Linux"/>
+      <Project Name="ex7practise" ConfigName="Linux"/>
+      <Project Name="ex8fixme" ConfigName="Linux"/>
+      <Project Name="ex9nim" ConfigName="Linux"/>
+      <Project Name="sample_c2f" ConfigName="Linux"/>
+      <Project Name="sample_functions" ConfigName="Linux"/>
+      <Project Name="sample_if_stmt" ConfigName="Linux"/>
+      <Project Name="sample_io" ConfigName="Linux"/>
+      <Project Name="sample_nested_stmt" ConfigName="Linux"/>
+      <Project Name="sample_operators" ConfigName="Linux"/>
+      <Project Name="sample_random" ConfigName="Linux"/>
+      <Project Name="sample_variables" ConfigName="Linux"/>
+      <Project Name="sample_while_stmt" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="ex10aldern" ConfigName="macOS"/>
+      <Project Name="ex1rectangle" ConfigName="macOS"/>
+      <Project Name="ex2deg_rad" ConfigName="macOS"/>
+      <Project Name="ex3factorial" ConfigName="macOS"/>
+      <Project Name="ex4sum_avg" ConfigName="macOS"/>
+      <Project Name="ex5functions" ConfigName="macOS"/>
+      <Project Name="ex6fiddling" ConfigName="macOS"/>
+      <Project Name="ex7practise" ConfigName="macOS"/>
+      <Project Name="ex8fixme" ConfigName="macOS"/>
+      <Project Name="ex9nim" ConfigName="macOS"/>
+      <Project Name="sample_c2f" ConfigName="macOS"/>
+      <Project Name="sample_functions" ConfigName="macOS"/>
+      <Project Name="sample_if_stmt" ConfigName="macOS"/>
+      <Project Name="sample_io" ConfigName="macOS"/>
+      <Project Name="sample_nested_stmt" ConfigName="macOS"/>
+      <Project Name="sample_operators" ConfigName="macOS"/>
+      <Project Name="sample_random" ConfigName="macOS"/>
+      <Project Name="sample_variables" ConfigName="macOS"/>
+      <Project Name="sample_while_stmt" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

@@ -1,0 +1,1 @@
+../build-macOS/ex10aldern/ex10aldern.c.o
