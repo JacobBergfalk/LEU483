@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="set2" Database="" Version="10000">
+  <Project Name="ex1quad" Path="ex1quad/ex1quad.project" Active="No"/>
+  <Project Name="ex2easter" Path="ex2easter/ex2easter.project" Active="No"/>
+  <Project Name="ex3series" Path="ex3series/ex3series.project" Active="No"/>
+  <Project Name="ex4puzzlers" Path="ex4puzzlers/ex4puzzlers.project" Active="No"/>
+  <Project Name="ex5day_nbr" Path="ex5day_nbr/ex5day_nbr.project" Active="Yes"/>
+  <Project Name="ex6ptr" Path="ex6ptr/ex6ptr.project" Active="No"/>
+  <Project Name="ex7pekare" Path="ex7pekare/ex7pekare.project" Active="No"/>
+  <Project Name="ex8sin" Path="ex8sin/ex8sin.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="ex1quad" ConfigName="Windows"/>
+      <Project Name="ex2easter" ConfigName="Windows"/>
+      <Project Name="ex3series" ConfigName="Windows"/>
+      <Project Name="ex4puzzlers" ConfigName="Windows"/>
+      <Project Name="ex5day_nbr" ConfigName="Windows"/>
+      <Project Name="ex6ptr" ConfigName="Windows"/>
+      <Project Name="ex7pekare" ConfigName="Windows"/>
+      <Project Name="ex8sin" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="ex1quad" ConfigName="Linux"/>
+      <Project Name="ex2easter" ConfigName="Linux"/>
+      <Project Name="ex3series" ConfigName="Linux"/>
+      <Project Name="ex4puzzlers" ConfigName="Linux"/>
+      <Project Name="ex5day_nbr" ConfigName="Linux"/>
+      <Project Name="ex6ptr" ConfigName="Linux"/>
+      <Project Name="ex7pekare" ConfigName="Linux"/>
+      <Project Name="ex8sin" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="ex1quad" ConfigName="macOS"/>
+      <Project Name="ex2easter" ConfigName="macOS"/>
+      <Project Name="ex3series" ConfigName="macOS"/>
+      <Project Name="ex4puzzlers" ConfigName="macOS"/>
+      <Project Name="ex5day_nbr" ConfigName="macOS"/>
+      <Project Name="ex6ptr" ConfigName="macOS"/>
+      <Project Name="ex7pekare" ConfigName="macOS"/>
+      <Project Name="ex8sin" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

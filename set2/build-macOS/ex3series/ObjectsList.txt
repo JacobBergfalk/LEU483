@@ -1,0 +1,1 @@
+../build-macOS/ex3series/ex3series.c.o
