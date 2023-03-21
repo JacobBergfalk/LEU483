@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="text_analyse" Datatext_analyse="" Version="10000">
+  <Project Name="text_analyse" Path="text_analyse/text_analyse.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="text_analyse" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="text_analyse" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="text_analyse" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

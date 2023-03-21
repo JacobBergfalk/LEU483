@@ -1,0 +1,49 @@
+***  Assignment 3b, text analyse ***
+
+Your task is to make a small program that derives some statistics of the text
+in a file.
+
+The analysis shall contain the number of lines in the file, the number of words
+and the percentage of different letters.
+
+It is sufficient to just handle the English letters (a-z). Words such as
+"can't" and "off-campus" shall be counted as single words. Numbers (e.g. 123)
+shall not be counted as words. For simplicity, you can assume that there are no
+strange words such as love2you, and that the characters ' and - only are
+present in words.
+
+The output shall look like this (where XXX.txt shall be the name of the file
+analysed):
+
+Text in XXX.txt has
+---
+Number of lines: 4
+Number of words: 10
+-
+Fraction of a: 8.33%
+Fraction of b: 0.00%
+Fraction of c: 5.56%
+Fraction of d: 2.78%
+Fraction of e: 13.89%
+Fraction of f: 0.00%
+Fraction of g: 0.00%
+Fraction of h: 5.56%
+Fraction of i: 13.89%
+Fraction of j: 0.00%
+Fraction of k: 0.00%
+Fraction of l: 11.11%
+Fraction of m: 0.00%
+Fraction of n: 11.11%
+Fraction of o: 2.78%
+Fraction of p: 0.00%
+Fraction of q: 0.00%
+Fraction of r: 2.78%
+Fraction of s: 13.89%
+Fraction of t: 8.33%
+Fraction of u: 0.00%
+Fraction of v: 0.00%
+Fraction of w: 0.00%
+Fraction of x: 0.00%
+Fraction of y: 0.00%
+Fraction of z: 0.00%
+
