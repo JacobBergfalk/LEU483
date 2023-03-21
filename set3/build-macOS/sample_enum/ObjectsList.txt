@@ -1,0 +1,1 @@
+../build-macOS/sample_enum/sample_enum.c.o

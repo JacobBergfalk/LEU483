@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="set3" Database="" Version="10000">
+  <Project Name="ex1sum_to" Path="ex1sum_to/ex1sum_to.project" Active="No"/>
+  <Project Name="ex2sum_arr" Path="ex2sum_arr/ex2sum_arr.project" Active="No"/>
+  <Project Name="ex3arr_func" Path="ex3arr_func/ex3arr_func.project" Active="No"/>
+  <Project Name="ex4matrix" Path="ex4matrix/ex4matrix.project" Active="No"/>
+  <Project Name="ex5matrix_func" Path="ex5matrix_func/ex5matrix_func.project" Active="No"/>
+  <Project Name="ex6common_seq" Path="ex6common_seq/ex6common_seq.project" Active="No"/>
+  <Project Name="ex7pts_tri" Path="ex7pts_tri/ex7pts_tri.project" Active="No"/>
+  <Project Name="ex8led" Path="ex8led/ex8led.project" Active="No"/>
+  <Project Name="ex9skalarproduct" Path="ex9skalarproduct/ex9skalarproduct.project" Active="Yes"/>
+  <Project Name="sample_arr_func" Path="sample_arr_func/sample_arr_func.project" Active="No"/>
+  <Project Name="sample_arrays" Path="sample_arrays/sample_arrays.project" Active="No"/>
+  <Project Name="sample_dyn_struct" Path="sample_dyn_struct/sample_dyn_struct.project" Active="No"/>
+  <Project Name="sample_enum" Path="sample_enum/sample_enum.project" Active="No"/>
+  <Project Name="sample_for_stmt" Path="sample_for_stmt/sample_for_stmt.project" Active="No"/>
+  <Project Name="sample_matrix" Path="sample_matrix/sample_matrix.project" Active="No"/>
+  <Project Name="sample_matrix_func" Path="sample_matrix_func/sample_matrix_func.project" Active="No"/>
+  <Project Name="sample_ptr_struct" Path="sample_ptr_struct/sample_ptr_struct.project" Active="No"/>
+  <Project Name="sample_struct" Path="sample_struct/sample_struct.project" Active="No"/>
+  <Project Name="sample_struct_func" Path="sample_struct_func/sample_struct_func.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Windows">
+      <Environment/>
+      <Project Name="ex1sum_to" ConfigName="Windows"/>
+      <Project Name="ex2sum_arr" ConfigName="Windows"/>
+      <Project Name="ex3arr_func" ConfigName="Windows"/>
+      <Project Name="ex4matrix" ConfigName="Windows"/>
+      <Project Name="ex5matrix_func" ConfigName="Windows"/>
+      <Project Name="ex6common_seq" ConfigName="Windows"/>
+      <Project Name="ex7pts_tri" ConfigName="Windows"/>
+      <Project Name="ex8led" ConfigName="Windows"/>
+      <Project Name="ex9skalarproduct" ConfigName="Windows"/>
+      <Project Name="sample_arr_func" ConfigName="Windows"/>
+      <Project Name="sample_arrays" ConfigName="Windows"/>
+      <Project Name="sample_dyn_struct" ConfigName="Windows"/>
+      <Project Name="sample_enum" ConfigName="Windows"/>
+      <Project Name="sample_for_stmt" ConfigName="Windows"/>
+      <Project Name="sample_matrix" ConfigName="Windows"/>
+      <Project Name="sample_ptr_struct" ConfigName="Windows"/>
+      <Project Name="sample_struct" ConfigName="Windows"/>
+      <Project Name="sample_struct_func" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux">
+      <Environment/>
+      <Project Name="ex1sum_to" ConfigName="Linux"/>
+      <Project Name="ex2sum_arr" ConfigName="Linux"/>
+      <Project Name="ex3arr_func" ConfigName="Linux"/>
+      <Project Name="ex4matrix" ConfigName="Linux"/>
+      <Project Name="ex5matrix_func" ConfigName="Linux"/>
+      <Project Name="ex6common_seq" ConfigName="Linux"/>
+      <Project Name="ex7pts_tri" ConfigName="Linux"/>
+      <Project Name="ex8led" ConfigName="Linux"/>
+      <Project Name="ex9skalarproduct" ConfigName="Linux"/>
+      <Project Name="sample_arr_func" ConfigName="Linux"/>
+      <Project Name="sample_arrays" ConfigName="Linux"/>
+      <Project Name="sample_dyn_struct" ConfigName="Linux"/>
+      <Project Name="sample_enum" ConfigName="Linux"/>
+      <Project Name="sample_for_stmt" ConfigName="Linux"/>
+      <Project Name="sample_matrix" ConfigName="Linux"/>
+      <Project Name="sample_ptr_struct" ConfigName="Linux"/>
+      <Project Name="sample_struct" ConfigName="Linux"/>
+      <Project Name="sample_struct_func" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="macOS">
+      <Environment/>
+      <Project Name="ex1sum_to" ConfigName="macOS"/>
+      <Project Name="ex2sum_arr" ConfigName="macOS"/>
+      <Project Name="ex3arr_func" ConfigName="macOS"/>
+      <Project Name="ex4matrix" ConfigName="macOS"/>
+      <Project Name="ex5matrix_func" ConfigName="macOS"/>
+      <Project Name="ex6common_seq" ConfigName="macOS"/>
+      <Project Name="ex7pts_tri" ConfigName="macOS"/>
+      <Project Name="ex8led" ConfigName="macOS"/>
+      <Project Name="ex9skalarproduct" ConfigName="macOS"/>
+      <Project Name="sample_arr_func" ConfigName="macOS"/>
+      <Project Name="sample_arrays" ConfigName="macOS"/>
+      <Project Name="sample_dyn_struct" ConfigName="macOS"/>
+      <Project Name="sample_enum" ConfigName="macOS"/>
+      <Project Name="sample_for_stmt" ConfigName="macOS"/>
+      <Project Name="sample_matrix" ConfigName="macOS"/>
+      <Project Name="sample_ptr_struct" ConfigName="macOS"/>
+      <Project Name="sample_struct" ConfigName="macOS"/>
+      <Project Name="sample_struct_func" ConfigName="macOS"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

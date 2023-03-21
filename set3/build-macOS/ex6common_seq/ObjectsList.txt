@@ -1,0 +1,1 @@
+../build-macOS/ex6common_seq/ex6common_seq.c.o

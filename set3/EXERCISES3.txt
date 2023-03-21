@@ -1,0 +1,109 @@
+*** Exercises Set 3 ***
+
+Do as many exercises as possible *BUT* you can't spend all your time here.
+Assignments are mandatory and need time. Use the leftover exercises as recap for the exam.
+However, at least check out the samples before putting these exercises to the side.
+
+Exercises
+---------
+
+1.  See ex1sum_to.c. Let the user sum from 1 to n (inclusive).
+    You should use a for-loop. Example output:
+
+    Program to sum 1-n    (first run)
+    Input n > 1
+    Sum 1 to 1 = 1
+
+    Program to sum 1-n    (second run)
+    Input n > 6
+    Sum 1 to 6 = 21        (1+2+3+4+5+6)
+
+
+2.  See ex2sum_arr.c. Let the user store 5 numbers in an array, then sum all
+    elements in the array. Use for-loops. Example output:
+
+    Program to sum an array of size 5
+    Input 0 > 2
+    Input 1 > 4
+    Input 2 > 5
+    Input 3 > 6
+    Input 4 > 3
+    Array is : [2, 4, 5, 6, 3]
+    Sum of elements is: 20
+
+
+3.  See ex3arr_func.c. Uncomment and implement each method in turn. The final output
+    should print ok for all except the three last which should output a random reordering
+    of the array (permutation).
+
+    NOTE: The shuffle function should use the modern version of the Fisher-Yates
+    algorithm to do the reordering
+    See: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+
+
+4.  See ex4matrix.c. Let the user input a small matrix. Then transpose the matrix
+    (store it). Finally print the matrix and the transpose of the matrix.
+    See https://en.wikipedia.org/wiki/Transpose. Example:
+
+    Program to transpose matrix
+    Input a 2 x 2 matrix
+    Input 0 0 > 1
+    Input 0 1 > 2
+    Input 1 0 > 3
+    Input 1 1 > 4
+    Matrix is
+    1 2
+    3 4
+    Transpose is
+    1 3
+    2 4
+
+
+5.  See ex5matrix_func.c. Implement all functions so that all output prints ok.
+
+
+6.  See ex6common.c. Given two equal sized integer arrays with positive elements
+    and an integer n > 0 find if there is any common sequence of elements of
+    length n in the arrays. If a sequence is found, return it (padded with zeros).
+    If there are more common sequences, these are ignored. If no sequence is found,
+    an array with all elements set to 0 is returned. See code for examples.
+    This is exercising functional decomposition. Break down the method common_seq
+    to solve the problem.
+
+7.  See ex7ptr_tri. We will work with points and triangles in 3D. Both are
+    represented as structures, see code. Implement functions to calculate the
+    distance between two points and the area of a triangle. For the area you should
+    use Herons formula, see https://en.wikipedia.org/wiki/Heron%27s_formula
+    Make all tests pass.v
+
+    NOTE: Structures always pass by address to functions (i.e. a pointer to the structure).
+
+8.  See ex8led.c. It is common that computer or phone screens display the colours
+    by combining, at each pixel, a source of red, green and blue (RGB) lights,
+    each with a different intensity. This exercise is an (over)simplification of
+    this application, and you will simulate that you can control a LED strip from
+    a computer program. In each position of the LED strip there is a red, green
+    and blue (RGB) LED that allows you to get different colours.
+
+    The goal of this exercise is two-fold. First, to use structures and enumerations
+    as data types to solve this problem. Second, to see how a computer code can
+    be more easy to understand by using enumerations.
+
+9.  See ex9skalarproduct.c. This is an old exam question. Try to solve this with pen and paper before using the computer.
+    Skalärprodukten mellan två vektorer är definierad som
+
+        a · b = (a_x, a_y, a_z) · (b_x, b_y, b_z) = a_x * b_x + a_y * b_y + a_z * b_z
+
+    a)  Skapa en struktur som beskriver en tre-dimensionell vektor (dvs. en
+        kombination av x-, y och z-värden). Ge typen namnet vector_t.
+    b)  Skriv en funktion som beräknar skalärprodukten och är deklarerad på
+        detta sätt: double scalar_product1(vector_t a, vector_t b)
+    c)  Skriv en funktion som beräknar skalärprodukten och är deklarerad på
+        detta sätt: double scalar_product2(vector_t *a, vector_t *b)
+    d)  Vilken version av funktionerna är effektivast? Motivera ditt svar.
+    e)  Skriv en main-funktion som jämför funktionerna ovan: deklarera två
+        variabler av typen vector_t, initiera dom med värden, anropa bägge
+        funktionerna ovan, jämför resultatet ifrån funktionerna, och skriv ut
+        Not OK om resultaten avviker med mer än 0.001, annars skriv ut OK.
+
+
